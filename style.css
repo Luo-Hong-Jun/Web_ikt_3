@@ -1,0 +1,17 @@
+#table{
+    height: 636px;
+    width: 742px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: row wrap;
+}
+
+/*#r1,#r2,#r3,#r4,#r5,#r6{
+}*/
+
+.block{
+    width: 100px;
+    height: 100px;
+    border: solid 3px black;
+}

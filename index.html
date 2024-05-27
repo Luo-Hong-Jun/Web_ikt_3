@@ -8,8 +8,11 @@
     <title>Connect 4</title>
 </head>
 <body>
-    <!-- P2W cosmetic skin shop-->
+        <!-- start screen-->
 
+    <button id="StartButton">Játék indítása</button>
+    <span id="Winner"></span>
+    <!-- P2W cosmetic skin shop-->
     <div id="shop" style="visibility: hidden;">
 
         <div id="Morshu" class="NoMargin">
@@ -29,29 +32,32 @@
                 <label for="creditCard">Credit Card Number:</label>
                 <input id="creditCard" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" 
                 maxlength="19" 
-                placeholder="xxxx xxxx xxxx xxxx" required>
+                placeholder="xxxx xxxx xxxx xxxx">
             </form>
         </div>
         <div id="Skins" class="NoMargin">
-            <h2>Fodderek:</h2>
-            <p>- A hős és a sárkány set (Nits hős és a démoni saláta sárkány)</p>
-            <p>- Vroom Vroom set</p>
-            <p>- Zelda legend set</p>
-            <p>- Pokemon set</p>
-            <p>- Jedlik és Révai set</p>
+            <div id="Gallery">
+                <h2>choices:</h2>
+                <div class="img" id="DragonAndLaci"></div>
+                <div class="img" id="VroomVroom"></div>
+                <div class="img" id="Zelda"></div>
+                <div class="img" id="pokemon"></div>
+                <div class="img" id="JedlikRevai"></div>
+            </div>
         </div>
         <div id="exitShop" class="NoMargin">
             <p>kilépés</p>
         </div>
 
     </div>
+
         <!-- P2W cosmetic skin shop open button-->
 
     <button id="Store">Bolt</button>
 
         <!-- Actual gae-->
     <h1>Connect 4</h1>
-    <div id="table">
+    <div id="table" style="visibility: hidden;">
         
     </div>
     <!-- audio -->

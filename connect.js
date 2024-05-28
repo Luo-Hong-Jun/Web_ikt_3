@@ -21,9 +21,9 @@ document.querySelector('#InfoSend').addEventListener('click', () => {
 });
 
 function CreditCheck() {
-    console.log(this.id)
     if (creditCardDataValid == true) {
         InstallBG(this.id);
+        morshu.style.backgroundImage = 'url(/Pics/Morshu.png)';
     }
     else{
         morshu.style.backgroundImage = 'url(/Pics/ComeBackLater.gif)';
@@ -45,24 +45,20 @@ function Check() {
     }
     else{
         condition = false;
-        console.log('bc')
     }
     if (CVC.length == 3 && /^\d+$/.test(CVC)) {
     }
     else{
         condition = false;
-        console.log('cvc')
     }
     if (ExpDate.length == 5) {
         
     }
     else{
         condition = false;
-        console.log('expdate')
     }
     if (Name.length == null) {
         condition = false;
-        console.log('name')
     }
     return condition;
 }

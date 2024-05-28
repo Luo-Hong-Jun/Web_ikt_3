@@ -176,6 +176,18 @@ h1{
     background-image: url('/Pics/pokemon.png');
 }
 
+#meinCraft{
+    background-image: url('/Pics/meinCraft.png');
+}
+
+#whopper{
+    background-image: url('/Pics/whopper.png');
+}
+
+#VroomVroom{
+    background-image: url('/Pics/VroomVroom.png');
+}
+
 #CVC, #ExpDate{
     width: 60px;
 }

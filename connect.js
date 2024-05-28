@@ -8,29 +8,72 @@ const startButton = document.querySelector("#StartButton");
 let morshu = document.querySelector("#left");
 let shop = document.querySelector("#shop");
 let audio = document.querySelector('#audio');
+let creditCardDataValid = false;
 
 /*Shop select img */
 let bgimgs = document.querySelectorAll('.img');
 bgimgs.forEach(x =>{
-    x.addEventListener('click', Check);
-})
+    x.addEventListener('click', CreditCheck);
+});
 
-function Check() {
-    let BankCard = document.querySelector('#creditCard').value;
-    if (BankCard.length != 0) {
+document.querySelector('#InfoSend').addEventListener('click', () => {
+    creditCardDataValid = Check();
+});
+
+function CreditCheck() {
+    console.log(this.id)
+    if (creditCardDataValid == true) {
         InstallBG(this.id);
     }
     else{
         morshu.style.backgroundImage = 'url(/Pics/ComeBackLater.gif)';
         audio.innerHTML = '<audio src="/line2.mp3" controls="controls" style="display: none;" autoplay></audio>';
     }
+};
+
+function Check() {
+    let condition = true;
+    let BankCard = document.querySelector('#creditCard').value;
+    let CVC = document.querySelector('#CVC').value;
+    let ExpDate = document.querySelector('#ExpDate').value;
+    let Name = document.querySelector('#Name').value;
+    console.log(BankCard);
+    console.log(CVC);
+    console.log(ExpDate);
+    console.log(Name);
+    if (BankCard.split(' ').length == 4) {
+    }
+    else{
+        condition = false;
+        console.log('bc')
+    }
+    if (CVC.length == 3 && /^\d+$/.test(CVC)) {
+    }
+    else{
+        condition = false;
+        console.log('cvc')
+    }
+    if (ExpDate.length == 5) {
+        
+    }
+    else{
+        condition = false;
+        console.log('expdate')
+    }
+    if (Name.length == null) {
+        condition = false;
+        console.log('name')
+    }
+    return condition;
 }
 
 function InstallBG(name) {
     document.body.style.backgroundImage = `url('/Pics/${name}.png')`;
 }
+
 /*game load */
 /*Az X és Y fellettek cserélve véletlen */
+
 function Load() {
     for (let x = 0; x < 6; x++) {
         for (let y = 0; y < 7; y++) {
@@ -56,39 +99,69 @@ function Test() {
     console.log(this.id)
     console.log(`Block Y: ${Id1} X:${Id2}`);
         if (this.style.backgroundColor == 'lightgray') {
-            if (Side == true) {
-                this.style.backgroundColor = 'lightblue';
-                CheckHorizontally(Id1, Id2, 'lightblue');
-                CheckVertically(Id1, Id2, 'lightblue');
-                CheckDiagnoally1(Id1, Id2, 'lightblue');
-                CheckDiagnoally2(Id1, Id2, 'lightblue');
-                Side = false;
-                /*Win condition */
-                if (Win == true) {
-                    Reset('lightblue');
+            console.log('Happened');
+            if (Id1 == 5) { 
+                if (Side == true) {
+                    this.style.backgroundColor = 'lightblue';
+                    CheckHorizontally(Id1, Id2, 'lightblue');
+                    CheckVertically(Id1, Id2, 'lightblue');
+                    CheckDiagnoally1(Id1, Id2, 'lightblue');
+                    CheckDiagnoally2(Id1, Id2, 'lightblue');
+                    Side = false;
+                    /*Win condition check*/
+                    if (Win == true) {
+                        Reset('blue');
+                    }
+                    else if (TieCheck()) {
+                        Reset('No one');
+                    }
                 }
-                else if (TieCheck()) {
-                    Reset('No one');
+                else{
+                    this.style.backgroundColor = 'lightcoral';
+                    CheckHorizontally(Id1, Id2, 'lightcoral');
+                    CheckVertically(Id1, Id2, 'lightcoral');
+                    CheckDiagnoally1(Id1, Id2, 'lightcoral');
+                    CheckDiagnoally2(Id1, Id2, 'lightcoral');
+                    Side = true;
+                    if (Win == true) {
+                        Reset('red');
+                    }
+                    else if (TieCheck()) {
+                        Reset('No one');
+                    }
                 }
             }
-            else{
-                this.style.backgroundColor = 'lightcoral';
-                CheckHorizontally(Id1, Id2, 'lightcoral');
-                CheckVertically(Id1, Id2, 'lightcoral');
-                CheckDiagnoally1(Id1, Id2, 'lightcoral');
-                CheckDiagnoally2(Id1, Id2, 'lightcoral');
-                Side = true;
-                if (Win == true) {
-                    Reset('lightcoral')
+            else if(document.getElementById(`${Number(Id1)+1}-${Id2}`).style.backgroundColor != 'lightgray'){
+                if (Side == true) {
+                    this.style.backgroundColor = 'lightblue';
+                    CheckHorizontally(Id1, Id2, 'lightblue');
+                    CheckVertically(Id1, Id2, 'lightblue');
+                    CheckDiagnoally1(Id1, Id2, 'lightblue');
+                    CheckDiagnoally2(Id1, Id2, 'lightblue');
+                    Side = false;
+                    if (Win == true) {
+                        Reset('blue');
+                    }
+                    else if (TieCheck()) {
+                        Reset('No one');
+                    }
                 }
-                else if (TieCheck()) {
-                    Reset('No one');
+                else{
+                    this.style.backgroundColor = 'lightcoral';
+                    CheckHorizontally(Id1, Id2, 'lightcoral');
+                    CheckVertically(Id1, Id2, 'lightcoral');
+                    CheckDiagnoally1(Id1, Id2, 'lightcoral');
+                    CheckDiagnoally2(Id1, Id2, 'lightcoral');
+                    Side = true;
+                    if (Win == true) {
+                        Reset('red');
+                    }
+                    else if (TieCheck()) {
+                        Reset('No one');
+                    }
                 }
             }
             
-        }
-        else{
-            console.log("Foglalt bitch");
         }
 }
 

@@ -12,6 +12,7 @@
 
     <button id="StartButton">Játék indítása</button>
     <span id="Winner"></span>
+    
     <!-- P2W cosmetic skin shop-->
     <div id="shop" style="visibility: hidden;">
 
@@ -30,9 +31,21 @@
         <div id="creditCardPwease" class="NoMargin">
             <form>
                 <label for="creditCard">Credit Card Number:</label>
-                <input id="creditCard" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" 
+                <input id="creditCard" type="text" 
                 maxlength="19" 
                 placeholder="xxxx xxxx xxxx xxxx">
+                <label for="CVC">Credit Card CVC:</label>
+                <input id="CVC" type="text"
+                maxlength="3" 
+                placeholder="xxx">
+                <label for="ExpDate">Credit Card Expiration date:</label>
+                <input id="ExpDate" type="text"
+                maxlength="5" 
+                placeholder="xx/xx">
+                <label for="Name">Credit Card holder Name:</label>
+                <input id="Name" type="text"
+                placeholder="Ali Muhammad">
+                <button type="button" id="InfoSend">confirm</button>
             </form>
         </div>
         <div id="Skins" class="NoMargin">

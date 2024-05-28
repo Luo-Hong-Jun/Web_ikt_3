@@ -1,6 +1,8 @@
 body{
     background-repeat: no-repeat;
     background-size: cover;
+    color: orange;
+    background-color: aliceblue;
 }
 
 *{
@@ -30,6 +32,9 @@ body{
 
 h1{
     text-align: center;
+    font-size: 50px;
+    padding-top: 50px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 #Store
@@ -40,6 +45,15 @@ h1{
     right: 0;
     border-radius: 20px;
     position: absolute;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: orange;
+    border-width: 4px;
+}
+
+#Store:hover{
+    transition: 1s;
+    background-color: #7b7b7b;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
 #shop{
@@ -51,12 +65,14 @@ h1{
     position: absolute;
     background-color: aliceblue;
     overflow: hidden;
+    color: black;
 }
 
 #Morshu{
     height: 50%;
     width: 100%;
     display: flex;
+    background-color: rgb(244, 237, 237);
 }
 
 #left{
@@ -85,6 +101,7 @@ h1{
     border-top: solid 5px black;
     height: 5%;
     border-bottom: solid 5px black;
+    background-color: white;
 }
 
 #Skins{
@@ -117,18 +134,30 @@ h1{
     margin: 15% 32.5%;
     border-radius: 30px;
     font-weight: bold;
+    color: orange;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    border-width: 5px;
+}
+
+#StartButton:hover{
+    transition: 1s;
+    background-color: #7b7b7b;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
 #Winner{
-    margin-top: 50%;
+    margin-top: 40%;
     font-size: 50px;
     font-weight: bold;
+    position: absolute;
+    margin-left: 40%;
 }
 
 #Gallery{
     display: flex;
     width: 100%;
     height: 100%;
+    background-color: white;
 }
 
 .img{
@@ -145,4 +174,17 @@ h1{
 
 #pokemon{
     background-image: url('/Pics/pokemon.png');
+}
+
+#CVC, #ExpDate{
+    width: 60px;
+}
+
+#InfoSend{
+    float: right;
+    margin-right: 20px;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
 }

@@ -194,7 +194,10 @@ let winCondition = true;
                 temporaryHelper = 0;
             }
         }
-        if (biggest != 4) {
+        if (biggest < temporaryHelper) {
+        biggest = temporaryHelper;
+        }
+        if (biggest < 4) {
             winCondition = false;
         }
     }
@@ -230,6 +233,8 @@ function CheckVertically(Y, X, color) {
             let string = document.getElementById(`${e}-${X}`).style.backgroundColor;
             if (string == color) {
                 temporaryHelper++;
+                console.log('happened');
+                console.log(temporaryHelper)
             }
             else{
                 if (biggest < temporaryHelper) {
@@ -238,7 +243,10 @@ function CheckVertically(Y, X, color) {
                 temporaryHelper = 0;
             }
         }
-        if (biggest != 4) {
+        if (biggest < temporaryHelper) {
+            biggest = temporaryHelper;
+        }
+        if (biggest < 4) {
             winCondition = false;
         }
     }
